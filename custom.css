@@ -1,12 +1,13 @@
 body {
-    background-image: linear-gradient(#5C3B85, #F597B9, #F09F9A, #6D597A, #355070);
-    width: 100%;
+    background-image: linear-gradient(#5C3B85, #F597B9, #F09F9A,#F597B9, #355070);
+    background-size: 300% 300%;
     height: 100vh;
+    animation: gradient 10s ease infinite alternate;
 }
 
 h1{
     color:white;
-    padding: 5% 0 5% 3%;
+    margin: 5.5% 0% 5.5% 10%;
     font-family: "Rammetto One", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -19,31 +20,29 @@ h1{
     display: flex
 }
 
-#navbar-menu ul {
+#logo-name i:hover {
+    cursor: pointer;
+}
+
+#navbar-menu {
     display: inline-flex;
-    list-style-type: none;
-    padding: 5% 0 5% 3%;
 }
 
-#navbar-menu ul li {
-    margin-left: 50%;
-}
-
-#navbar-menu ul li a {
+#navbar-menu a {
+    margin: 3% 0% 3% 10%;
+    padding: 2% 3% 2% 3%; 
     color: white;
-    padding: 5%;
     text-decoration: none;
-    font-size: 20px;
     border-radius: 5px;
     transition: background-color 0.3s;
     font-family: "Questrial", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 22px;
 }
 
-#navbar-menu ul li a:hover{
+#navbar-menu a:hover{
     background-color: rgba(53, 80, 112, 0.6); 
-
 }
 
 h4 {
@@ -88,7 +87,7 @@ h2 {
 }
 
 #bio {
-    padding: 5% 0 5% 10%;
+    padding: 5% 5% 5% 10%;
 }
 
 i {
@@ -108,19 +107,57 @@ p {
     display: none;
 }
 
+.extend-navbar-menu{
+    display: none;
+    width: 50%;
+    background-color: white;
+    position:absolute;
+    right: 2%;
+    top: 10%;
+    border-radius: 2px;
+    list-style-type: none;
+    animation-name: extend-navbar-menu;
+    animation-duration: 0.5s;
+}
+
+.extend-navbar-menu li{
+    margin: 3% 0 3% 0;
+    padding: 5% 3% 5% 3%;
+    color: #355070;
+    transition: background-color 0.3s;
+    border-radius: 2px;
+}
+
+.extend-navbar-menu li a{
+    text-decoration: none;
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    color: #355070;
+    transition: opacity 0.3s;
+}
+
+.extend-navbar-menu li a:hover{
+    opacity: 50%;
+}
+
 /* Image styler */
 #my-photo {
     padding: 5%;
-    margin-left: 5%;
+    margin: 1% 0 5% 2%;
     text-align: center;
-    height: 500px;
-    width: 500px;
+    height: 90%;
+    width: 73%;
     border-radius: 50%;
     border-style: solid;
     border-color: black;
 }
 
 @media (max-width: 992px){
+    h1 {
+        margin: 5% 0% 5% 3%;
+    }
     #navbar-menu{
         display: none;
     }
@@ -130,5 +167,35 @@ p {
         position: absolute;
         right: 3%;
     }
+    #introduction {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .extend-navbar-menu{
+        display: block;
+    }
+    
+    #my-photo {
+        margin: 1% 0 5% 15%;
+    }
+}
+
+@media (max-width: 400px){
+    .extend-navbar-menu{
+        top: 8%;
+    }
+}
+
+@keyframes extend-navbar-menu {
+    0% {top: 7%; opacity: 70%};
+    25% {top: 8%; opacity: 80%};
+    50% {top: 9%; opacity: 90%};
+    100% {top: 10%; opacity: 100%};
+}
+
+@keyframes gradient {
+    0%   {background-position: 100% 100%};
+    100%  {background-position: 100% 0%};
 }
 
